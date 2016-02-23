@@ -69,9 +69,14 @@ body h1:after {
 	list-style: none;
 }
 .table{
-	margin-top: 2em;
 	font-size: 1.2em;
 	color:#fff;
+	background:rgba(255,88,88,0.75);
+	margin-top:2em;
+	max-width:250px;
+	min-height:250px;
+	padding-top:2em;
+	display:inline-block;
 }
 .addTable{
 	width:100%;

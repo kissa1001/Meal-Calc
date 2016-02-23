@@ -11,7 +11,7 @@ function Menu(meals){
 
 Menu.prototype.addTable = function(){
 	$('.addTable').on('click', function(){
-		$('#tables').append('<ul class="table"></ul>');
+		$('#dinnerHall').append('<ul class="table"></ul>');
 	});
 }
 
@@ -40,8 +40,6 @@ Menu.prototype.billCalc = function(){
 		tax = subTotal*taxRate;
 		tips = subTotal*tipRate;
 		total = Math.round((subTotal + tax + tips)*100)/100;
-	});
-	$('.addTable').on('click', function(){
 		$('.table').last().append("Subtotal: $"+subTotal+"</br>Tax: $"+tax+"</br>Tips(15%): $"+tips+"</br>Total: $" + total);
 	});
 };
