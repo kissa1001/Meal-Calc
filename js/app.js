@@ -15,11 +15,6 @@ Menu.prototype.addTable = function(){
 	});
 }
 
-function Meal(data){
-	this.meal = data.meal;
-	this.price = data.price;
-};
-
 Menu.prototype.order = function(){
 	$('.meal').on('click', function(){
 		var newOrder = $(this).clone();
@@ -42,6 +37,11 @@ Menu.prototype.billCalc = function(){
 		total = Math.round((subTotal + tax + tips)*100)/100;
 		$('.table').last().append("Subtotal: $"+subTotal+"</br>Tax: $"+tax+"</br>Tips(15%): $"+tips+"</br>Total: $" + total);
 	});
+};
+
+function Meal(data){
+	this.meal = data.meal;
+	this.price = data.price;
 };
 
 var meal1 = new Meal({
