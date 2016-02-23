@@ -10,6 +10,7 @@
 	<link rel="shortcut icon" href="img/shortcut-icon.png"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- Handlebars Template -->
 	<script id="meal-template" type="text/x-handlebars-template">
 		{{#each this}}
@@ -20,15 +21,19 @@
 	</script>
 </head>
 <body>
-	<div class="container text-center">
-		<button type="button" class="btn btn-info addTable">Add table</button>
-	</div>
 	<div class="container">
 		<div class="row">
-			<div id="menu-tablet" class="col-sm-5">
+			<div class="col-sm-4">
+			<div id="menu-tablet" class="row">
+				<h1>Menu</h1>
+				<p class='text-center'>All our dishes comes with your choice of salad, side and drink!</p>
 				<ol id="menu"></ol>
 			</div>
-			<div id="dinnerHall" class="col-sm-7">
+				<div class="row text-center">
+					<button class="addTable">New table</button>
+				</div>
+			</div>
+			<div id="dinnerHall" class="col-sm-8">
 				<div id="tables">
 					<ul class="table"></ul>
 				</div>
@@ -46,4 +51,4 @@
 	<script src="js/handlebars-v4.0.5.js"></script>
 	<script src="js/app.js"></script>
 </body>
-</html>
+</html
