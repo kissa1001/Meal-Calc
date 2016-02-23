@@ -54,9 +54,18 @@ var meal3 = new Meal({
 var menu1 = new Menu([meal1,meal2,meal3]);
 
 var table1 = new Table(menu1);
+var table2 = new Table(menu1);
 
 table1.order('Smoked Bacon');
 table1.order('Pulled Pork');
 table1.order('Pop Corn');
+
+table2.order('Roasted Chicken');
+table2.order('Pulled Pork');
+table2.order('Smoked Bacon');
+
 console.log(table1.meals);
 table1.bill();
+
+console.log(table2.meals);
+table2.bill();
