@@ -1,11 +1,27 @@
+#!/usr/bin/env node
+
 var _ = require('underscore');
+var program = require('commander');
+
 function Menu(meals){
 	this.meals = meals;
 };
+
+Menu.prototype.show = function(){
+	_.each(this.meals, function(meal){
+		console.log(meal.display());
+	});
+};
+
 function Meal(data){
 	this.meal = data.meal;
 	this.price = data.price;
 };
+
+Meal.prototype.display = function(){
+	return this.meal +' - $'+ this.price;
+};
+
 function Table(menu){
 	this.meals = [];
 	this.menu = menu;
@@ -17,6 +33,9 @@ Table.prototype.order = function(mealName){
 	});
 	if(order != undefined){
 		this.meals.push(order);
+	}
+	else{
+		console.log(mealName + ' does not exist in our menu!');
 	}
 };
 
@@ -54,9 +73,25 @@ var meal3 = new Meal({
 var menu1 = new Menu([meal1,meal2,meal3]);
 
 var table1 = new Table(menu1);
+var table2 = new Table(menu1);
 
-table1.order('Smoked Bacon');
-table1.order('Pulled Pork');
-table1.order('Pop Corn');
-console.log(table1.meals);
-table1.bill();
+
+function list(val){
+	return val.split(',');
+};
+
+program
+	.option('--menu', 'Print the menu meals')
+	.option('--order <meals>','takes comma-separated meal orders', list)
+	.parse(process.argv);
+
+if(program.menu){
+	menu1.show();
+}
+else{
+	table = new Table(menu1);
+	_.each(program.order, function(meal){
+		table.order(meal);
+	});
+	table.bill();
+}
